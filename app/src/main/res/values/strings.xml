@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">SenyumMediaMobile</string>
+    <!--Menu Navigation-->
+    <string name="stationery">Stationery</string>
+    <string name="perlengkapan_kantor">Perlengkapan Kantor</string>
+    <string name="peralatan_kantor">Peralatan Kantor</string>
+    <string name="kertas">Kertas</string>
+    <string name="elektronik">Elektronik</string>
+    <string name="for_kids">Creativy For Kids</string>
+
+    <!--Sub Menu Navigation-->
+
+    <!--Navigation Function to Open or Close-->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_stationery"
+        android:icon="@drawable/ic_example"
+        android:title="@string/stationery"/>
+
+    <item android:id="@+id/nav_perlengkapan_kantor"
+        android:title="@string/perlengkapan_kantor"
+        android:icon="@drawable/ic_example"/>
+
+    <item android:id="@+id/nav_peralatan_kantor"
+        android:title="@string/peralatan_kantor"
+        android:icon="@drawable/ic_example"/>
+
+    <item android:id="@+id/nav_kertas"
+        android:title="@string/kertas"
+        android:icon="@drawable/ic_example"/>
+
+    <item android:id="@+id/nav_elektronik"
+        android:title="@string/elektronik"
+        android:icon="@drawable/ic_example"/>
+
+    <item android:id="@+id/nav_kreatif_for_kids"
+        android:title="@string/for_kids"
+        android:icon="@drawable/ic_example"/>
+
+</menu>
