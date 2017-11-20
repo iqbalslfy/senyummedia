@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">SenyumMediaMobile</string>
+    <string name="empty"></string>
     <!--Menu Navigation-->
     <string name="stationery">Stationery</string>
     <string name="perlengkapan_kantor">Perlengkapan Kantor</string>
