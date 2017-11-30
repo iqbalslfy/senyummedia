@@ -1,4 +1,4 @@
-package net.source.senyum.senyummedia.Activity;
+package net.source.senyum.senyummedia.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

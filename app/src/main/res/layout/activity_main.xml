@@ -27,10 +27,9 @@
     <android.support.design.widget.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/navigtion_header"
-        app:menu="@menu/navigation_item"
         android:layout_gravity="start">
 
+        <include layout="@layout/expandable_layout"/>
     </android.support.design.widget.NavigationView>
 
 
