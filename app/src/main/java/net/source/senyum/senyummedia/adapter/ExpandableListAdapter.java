@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.source.senyum.senyummedia.R;
 
@@ -79,7 +80,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view, ViewGroup parent) {
+    public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View view, ViewGroup parent) {
         final String childText = (String)getChild(groupPosition, childPosition);
         if (view == null){
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -88,6 +89,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView txtListChild = view.findViewById(R.id.lblListItem);
         txtListChild.setText(childText);
+
+        txtListChild.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Clicked :" + "\n" +groupPosition +" :"+childPosition, Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 

@@ -22,6 +22,39 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        >
+
+        <EditText
+            android:id="@+id/txt_cari_home"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_search"
+            android:background="@drawable/style_edit_text_search"
+            android:layout_height="wrap_content"
+            android:text="Apa yang Anda cari hari ini?"
+            android:textColor="@color/colorPrimary"
+            android:editable="false"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            />
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>
 
     <android.support.design.widget.NavigationView
