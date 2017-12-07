@@ -1,6 +1,11 @@
 package net.source.senyum.senyummedia;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +16,16 @@ import android.widget.ExpandableListView;
 
 import net.source.senyum.senyummedia.activity.KeranjangActivity;
 import net.source.senyum.senyummedia.adapter.ExpandableListAdapter;
+import net.source.senyum.senyummedia.fragments.EightFragment;
+import net.source.senyum.senyummedia.fragments.FiveFragment;
+import net.source.senyum.senyummedia.fragments.FourFragment;
+import net.source.senyum.senyummedia.fragments.NineFragment;
+import net.source.senyum.senyummedia.fragments.OneFragment;
+import net.source.senyum.senyummedia.fragments.SevenFragment;
+import net.source.senyum.senyummedia.fragments.SixFragment;
+import net.source.senyum.senyummedia.fragments.TenFragment;
+import net.source.senyum.senyummedia.fragments.ThreeFragment;
+import net.source.senyum.senyummedia.fragments.TwoFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableListAdapter listAdapter;
     private List<String> listDataHeader;
     private HashMap<String,List<String>> listHashMap;
+
+//menu tab
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
 
     @Override
@@ -49,8 +68,59 @@ public class MainActivity extends AppCompatActivity {
         isiData();
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listHashMap);
         listView.setAdapter(listAdapter);
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+
     }
 
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new OneFragment(), "ONE");
+        adapter.addFrag(new TwoFragment(), "TWO");
+        adapter.addFrag(new ThreeFragment(), "THREE");
+        adapter.addFrag(new FourFragment(), "FOUR");
+        adapter.addFrag(new FiveFragment(), "FIVE");
+        adapter.addFrag(new SixFragment(), "SIX");
+        adapter.addFrag(new SevenFragment(), "SEVEN");
+        adapter.addFrag(new EightFragment(), "EIGHT");
+        adapter.addFrag(new NineFragment(), "NINE");
+        adapter.addFrag(new TenFragment(), "TEN");
+        viewPager.setAdapter(adapter);
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFrag(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
     private void isiData() {
         listDataHeader = new ArrayList<>();
         listHashMap = new HashMap<>();

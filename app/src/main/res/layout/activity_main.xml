@@ -8,54 +8,57 @@
     tools:context="net.source.senyum.senyummedia.MainActivity"
     android:id="@+id/drawerlayout">
 
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark">
+        android:orientation="vertical">
 
-    </android.support.v7.widget.Toolbar>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-            <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        >
-
-        <EditText
-            android:id="@+id/txt_cari_home"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:drawableLeft="@drawable/ic_search"
-            android:background="@drawable/style_edit_text_search"
             android:layout_height="wrap_content"
-            android:text="Apa yang Anda cari hari ini?"
-            android:textColor="@color/colorPrimary"
-            android:editable="false"
-            android:layout_margin="5dp"
-            android:padding="5dp"
-            />
-    </RelativeLayout>
-    </android.support.v7.widget.CardView>
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <android.support.v7.widget.CardView
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:theme="@style/Base.ThemeOverlay.AppCompat.Dark" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable"
+                app:tabTextColor="@color/colorPrimaryDark"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabIndicatorColor="@color/colorPrimary"
+                android:background="@color/white"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </android.support.v7.widget.CardView>
 
-</LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView
         android:layout_width="wrap_content"
@@ -65,5 +68,17 @@
         <include layout="@layout/expandable_layout"/>
     </android.support.design.widget.NavigationView>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        </android.support.v4.view.ViewPager>
+
+    </FrameLayout>
 </android.support.v4.widget.DrawerLayout>

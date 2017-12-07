@@ -20,5 +20,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical|center"
         android:layout_centerVertical="true"
-        android:text="Keranjang"/>
+        android:text="Keranjang"
+        android:id="@+id/textView" />
+
 </RelativeLayout>
