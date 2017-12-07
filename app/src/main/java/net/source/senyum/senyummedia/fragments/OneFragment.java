@@ -8,11 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import net.source.senyum.senyummedia.R;
+import net.source.senyum.senyummedia.adapter.ViewPagerAdapter;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class OneFragment extends Fragment{
 
     ViewPager viewPager;
+    private Timer timer;
+
 
     public OneFragment() {
         // Required empty public constructor
@@ -32,8 +38,43 @@ public class OneFragment extends Fragment{
 
         viewPager = view.findViewById(R.id.viewPagerHome);
 
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity());
+        viewPager.setAdapter(viewPagerAdapter);
+
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTasks(), 1000, 2000);
         return view;
 
+    }
+
+    public class TimerTasks extends TimerTask {
+
+        @Override
+        public void run() {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (viewPager.getCurrentItem() == 0){
+                        viewPager.setCurrentItem(1);
+                    } else if (viewPager.getCurrentItem() == 1){
+                        viewPager.setCurrentItem(2);
+                    } else {
+                        viewPager.setCurrentItem(0);
+                    }
+
+                }
+            });
+
+
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        timer.cancel();
+        timer.purge();
     }
 
 }
